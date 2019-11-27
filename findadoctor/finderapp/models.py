@@ -19,8 +19,15 @@ class Doctor(models.Model):
         return self.user.username
 
 
+class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+
 class Booking(models.Model):
-    patient = models.ForeignKey(User, related_name="findadoctor", on_delete=models.CASCADE, null=True)
+    patient = models.ForeignKey(Patient, related_name="findadoctor", on_delete=models.CASCADE, null=True)
     doctor = models.ForeignKey(Doctor, related_name="findadoctor", on_delete=models.CASCADE)
     date = models.DateTimeField('Date and Time Booked')
 
