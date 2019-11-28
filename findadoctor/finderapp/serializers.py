@@ -1,18 +1,12 @@
 from rest_framework import serializers
 
-from .models import Booking, Doctor, Hospital, Patient
+from .models import Booking, Doctor, Hospital
 
 
 # Booking serializer
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = '__all__'
-
-
-class PatientSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Patient
         fields = '__all__'
 
 
